@@ -2,8 +2,6 @@
 
 Retrieval-Augmented Generation for PDFs — Cohere embeddings + FAISS + OpenRouter LLM in a Streamlit UI.
 
-![Flowchart](docs/flowchart_colored.png)
-
 ## Author
 **Floyd Steev Santhmayer**
 
