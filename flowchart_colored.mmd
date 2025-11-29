@@ -1,0 +1,19 @@
+%% flowchart_colored.mmd
+flowchart LR
+    A["User Uploads PDFs"]:::input --> B["Extract Text (PyMuPDF / OCR)"]:::ingest
+    B --> C["Chunk Text with Provenance"]:::preproc
+    C --> D["Embed Chunks (Cohere, batched)"]:::embed
+    D --> E["Build FAISS Index"]:::db
+    E --> F["User Asks Question"]:::input
+    F --> G["Embed Query (Cohere)"]:::embed
+    G --> H["Retrieve Top-K (FAISS)"]:::db
+    H --> I["OpenRouter Chat (Context + Q)"]:::model
+    I --> J["Generate Answer & Follow-ups"]:::output
+
+    classDef input fill:#E8F0FE,stroke:#2B6CB0,color:#1A365D;
+    classDef ingest fill:#F0FFF4,stroke:#2F855A,color:#22543D;
+    classDef preproc fill:#FEF3C7,stroke:#B45309,color:#92400E;
+    classDef embed fill:#F5F3FF,stroke:#6B46C1,color:#3C096C;
+    classDef db fill:#FFF7ED,stroke:#DD6B20,color:#7A341A;
+    classDef model fill:#FFF1F2,stroke:#C53030,color:#742A2A;
+    classDef output fill:#ECFEFF,stroke:#0BC5EA,color:#065666;

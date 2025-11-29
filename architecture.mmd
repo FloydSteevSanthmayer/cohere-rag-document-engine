@@ -1,0 +1,22 @@
+%% architecture.mmd
+flowchart LR
+  subgraph UX [User Layer]
+    U["User (Browser) - Streamlit UI"]:::ux
+  end
+  subgraph Ingest [Ingestion]
+    UP["Upload PDFs"]:::ingest --> EX["PDF Extraction"]:::ingest
+  end
+  subgraph Preproc [Preprocessing]
+    CHK["Chunking + Provenance"]:::preproc
+  end
+  subgraph Embed [Embedding]
+    COH["Cohere Embedding (batched)"]:::embed
+  end
+  subgraph VectorDB [Vector Store]
+    FA["FAISS Index"]:::db
+  end
+  classDef ux fill:#E8F0FE,stroke:#2B6CB0,color:#1A365D;
+  classDef ingest fill:#F0FFF4,stroke:#2F855A,color:#22543D;
+  classDef preproc fill:#FEF3C7,stroke:#B45309,color:#92400E;
+  classDef embed fill:#F5F3FF,stroke:#6B46C1,color:#3C096C;
+  classDef db fill:#FFF7ED,stroke:#DD6B20,color:#7A341A;
